@@ -50,7 +50,7 @@ function Home() {
         let payload = JSON.stringify({
             "steakid": steakID,
             "stakes": theStakes,
-            "restaurant": address,
+            "restaurant": "Little Sammy Shop",//address,
             "phone": phone,
             "name": name,
             "date": dateFmt
