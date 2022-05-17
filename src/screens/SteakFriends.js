@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import Friend from './Friend'
 
 import {
     Box,
@@ -7,6 +8,7 @@ import {
     Grid,
     Image,
     Text,
+    Center,
     Textarea,
     Button,
     Input,
@@ -36,13 +38,17 @@ function SteakFriends() {
 
     useEffect(() => {
         setActive(data.active)
-        if (localStorage.getItem("SteakMaster") == data.stakeid){
+        if (localStorage.getItem("SteakMaster") == data.stakeid) {
             setInitiator('you')
         }
         else {
             setInitiator(data.initiator)
         }
     }, [active])
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <Box
@@ -61,8 +67,13 @@ function SteakFriends() {
                         <Text fontWeight='bold' fontSize='xl'>Steak Challengers</Text>
                     </Box>
                     <Box borderRadius='6' p={6} backgroundColor='#BEE3F8' minW="75%">
-                     <HStack><InfoIcon mr={4} color='#3182CE' /> <Text>Hello World</Text></HStack>
-                         
+                        <HStack>
+                            <InfoIcon mr={4} color='#3182CE' />
+                                <Text align={'center'}>Waiting for {initiator} to finalize the stakes...</Text>
+                        </HStack>
+                    </Box>
+                    <Box boxShadow='xs' p="4" border='1px' borderRadius={4} minW="75%">
+                        <Friend steakName="Andrew Greenberg" stakes="loidle loidle loidle" ></Friend>
                     </Box>
                 </VStack>
             </Grid>
